@@ -40,7 +40,9 @@
         color: 0xdaa520,
         specular: 0xbcbcbc,
       } );
-      var cube = new THREE.Mesh( torus_geometry, torus_material );
+      var torus = new THREE.Mesh( torus_geometry, torus_material );
+      torus.position.x = 30;
+      scene.add(torus);
       
       camera.position.z = 100;
       function render() {
