@@ -16,14 +16,18 @@
       var renderer = new THREE.WebGLRenderer();
       renderer.setSize( window.innerWidth, window.innerHeight );
       document.body.appendChild( renderer.domElement );
+      
       var cube_geometry = new THREE.BoxGeometry( 10, 10, 10);
-      var sphere_geometry = new THREE.SphereGeometry(10, 32, 32);
-      var material_cube = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
-      var material_sphere = new THREE.MeshNormalMaterial();
-      var cube = new THREE.Mesh( geometry_cube, material_cube );
-      var sphere = new THREE.Mesh( geometry_sphere, material_sphere );
+      var cube_material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+      var cube = new THREE.Mesh( cube_geometry, cube_material );
+      cube.position.x = -30;
       scene.add( cube );
+      
+      var sphere_geometry = new THREE.SphereGeometry(10, 32, 32);
+      var sphere_material = new THREE.MeshNormalMaterial();
+      var sphere = new THREE.Mesh( sphere_geometry, sphere_material );
       scene.add( sphere );
+      
       camera.position.z = 25;
       function render() {
         requestAnimationFrame( render );
@@ -32,6 +36,7 @@
         renderer.render( scene, camera );
       }
       render();
+      
     </script>
   </body>
 </html>
